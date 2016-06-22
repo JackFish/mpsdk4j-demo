@@ -34,9 +34,9 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <db.url>jdbc:mysql://192.168.56.103:3306/nuby</db.url>
-                <db.user>root</db.user>
-                <db.pswd>root</db.pswd>
+                <db.url>jdbc:mysql://10.0.245.111:3306/nuby</db.url>
+                <db.user>admin</db.user>
+                <db.pswd>askfish2014</db.pswd>
             </properties>
         </profile>
         <profile>
@@ -79,13 +79,13 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>1.7.10</version>
+            <version>1.7.21</version>
         </dependency>
 
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>log4j-over-slf4j</artifactId>
-            <version>1.7.10</version>
+            <version>1.7.21</version>
         </dependency>
 
         <dependency>
@@ -209,7 +209,7 @@
         <dependency>
             <groupId>net.bull.javamelody</groupId>
             <artifactId>javamelody-core</artifactId>
-            <version>1.56.0</version>
+            <version>1.60.0</version>
         </dependency>
     </dependencies>
 
@@ -255,6 +255,20 @@
                             </excludes>
                         </resource>
                     </webResources>
+                </configuration>
+            </plugin>
+        <!--推荐使用tomcat7:run-->
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <path>/${project.artifactId}</path>
+                    <port>80</port>
+                    <uriEncoding>UTF-8</uriEncoding>
+                    <url>http://localhost:80/manager/html</url>
+                    <server>tomcat7</server>
+                    <warSourceDirectory>src/main/webapp</warSourceDirectory>
                 </configuration>
             </plugin>
         </plugins>
